@@ -12,12 +12,14 @@ final class SwiftyAWSSNSTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        if let resource = NSDictionary(contentsOfFile: "/tmp/Info.plist") {
-            accessKeyId = resource["accessKeyId"] as? String
-            secretKey = resource["secretKey"] as? String
-            region = resource["region"] as? String
-            platformApplicationArn = resource["platformApplicationArn"] as? String
-            token = resource["token"] as? String
+
+        if let resourceData = try? Data(contentsOf: URL(fileURLWithPath: "/tmp/Info.plist")),
+            let resource = try? PropertyListSerialization.propertyList(from: resourceData, format: nil) as? [String:Any], let info = resource {
+            accessKeyId = info["accessKeyId"] as? String
+            secretKey = info["secretKey"] as? String
+            region = info["region"] as? String
+            platformApplicationArn = info["platformApplicationArn"] as? String
+            token = info["token"] as? String
         }
     }
 
