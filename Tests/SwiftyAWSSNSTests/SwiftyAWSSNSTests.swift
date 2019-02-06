@@ -121,21 +121,41 @@ final class SwiftyAWSSNSTests: XCTestCase {
         let expect = expectation(description: "Done")
         
         // Format of messages: https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CreatingtheNotificationPayload.html
-        /*
-            {
-            "APNS_SANDBOX":"{\"aps\":{\"alert\":\"Hello!\"}}"
+        // https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/PayloadKeyReference.html
+        
+        func strForJSON(json: Any) -> String? {
+            if let result = try? JSONSerialization.data(withJSONObject: json, options: JSONSerialization.WritingOptions(rawValue: 0)) {
+                return String(data: result, encoding: .utf8)
             }
-         
-            {'aps':{'alert':'Hello!'}}
-        */
-        let json = "{\"aps\":{\"alert\":\"Hello!\"}}"
-        let urlEncoadedJson = json.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+            return nil
+        }
+        
+        let messageContentsDict = ["aps":
+            ["alert": "Hello!",
+            "sound": "default"]
+        ]
+        
+        guard let messageContentsString = strForJSON(json: messageContentsDict) else {
+            XCTFail()
+            return
+        }
+        
+        // Looks like this must be "APNS" for production; see https://forums.aws.amazon.com/thread.jspa?threadID=145907
+        let messageDict = ["APNS_SANDBOX": messageContentsString,
+            "APNS": messageContentsString
+        ]
 
-        sns.publish(message: json, target: .endpointArn(endpoint)) { response in
+        guard let messageString = strForJSON(json: messageDict) else {
+            XCTFail()
+            return
+        }
+
+        sns.publish(message: messageString, target: .endpointArn(endpoint)) { response in
             switch response {
             case .success:
                 break
-            case .error:
+            case .error(let error):
+                print("error: \(error)")
                 XCTFail()
             }
             

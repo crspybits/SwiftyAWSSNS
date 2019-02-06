@@ -51,11 +51,6 @@ public class SwiftyAWSSNS {
             "\(key)=\(value)"
         }.joined(separator: "&")
         
-//        var path = "/"
-//        if let queryParametersString = request.url?.query {
-//            path = "/?" + queryParametersString
-//        }
-        
         let options:[ClientRequest.Options] = [
             .method(request.httpMethod!),
             .headers(headers),
@@ -68,9 +63,9 @@ public class SwiftyAWSSNS {
             // print("response?.httpStatusCode: \(String(describing: response?.httpStatusCode))")
             var jsonResult:Any!
             var deserializationError: Swift.Error!
+            var bodyData = Data()
             
             do {
-                var bodyData = Data()
                 try response?.readAllData(into: &bodyData)
                 jsonResult = try JSONSerialization.jsonObject(with: bodyData, options: [])
             }
@@ -95,6 +90,8 @@ public class SwiftyAWSSNS {
             else {
                 let jsonDict = jsonResult as? [String: Any]
                 print("ERROR: jsonDict: \(String(describing: jsonDict))")
+                let bodyString = String(data: bodyData, encoding: .utf8)
+                print("ERROR: bodyString: \(String(describing: bodyString))")
                 completion(.error(AWSError.httpStatusError(response?.httpStatusCode.rawValue)))
             }
         }
@@ -214,7 +211,8 @@ public class SwiftyAWSSNS {
         
         var queryParameters = ["Action": "\(action)",
             "Version": "\(version)",
-            "Message": "\(message)"]
+            "Message": "\(message)",
+            "MessageStructure":"json"]
         
         switch target {
         case .endpointArn(let endpointArn):
