@@ -23,7 +23,7 @@ public class SwiftyAWSSNS {
         case jsonParsingError
     }
     
-    init(accessKeyId: String, secretKey: String, region: String, platformApplicationArn: String) {
+    public init(accessKeyId: String, secretKey: String, region: String, platformApplicationArn: String) {
         self.accessKeyId = accessKeyId
         self.secretKey = secretKey
         self.region = region
