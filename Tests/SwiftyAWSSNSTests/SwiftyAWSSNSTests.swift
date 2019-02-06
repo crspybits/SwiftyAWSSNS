@@ -42,10 +42,12 @@ final class SwiftyAWSSNSTests: XCTestCase {
     }
     
     func testCreatePlatformEndpoint() {
-        guard let _ = createPlatformEndpoint() else {
+        guard let endpointARN = createPlatformEndpoint() else {
             XCTFail()
             return
         }
+        
+        print("endpointARN: \(endpointARN)")
     }
     
     func createTopic() -> String? {
@@ -98,6 +100,41 @@ final class SwiftyAWSSNSTests: XCTestCase {
             switch result {
             case .success(let arn):
                 print("subscribeArn: \(arn)")
+            case .error:
+                XCTFail()
+            }
+            
+            expect.fulfill()
+        }
+        
+        waitForExpectations(timeout: 10.0, handler: nil)
+    }
+    
+    func testPublishToEndpoint() {
+        guard let endpoint = createPlatformEndpoint() else {
+            XCTFail()
+            return
+        }
+        
+        let sns = SwiftyAWSSNS(accessKeyId: accessKeyId, secretKey: secretKey, region: region, platformApplicationArn: platformApplicationArn)
+
+        let expect = expectation(description: "Done")
+        
+        // Format of messages: https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CreatingtheNotificationPayload.html
+        /*
+            {
+            "APNS_SANDBOX":"{\"aps\":{\"alert\":\"Hello!\"}}"
+            }
+         
+            {'aps':{'alert':'Hello!'}}
+        */
+        let json = "{\"aps\":{\"alert\":\"Hello!\"}}"
+        let urlEncoadedJson = json.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+
+        sns.publish(message: json, target: .endpointArn(endpoint)) { response in
+            switch response {
+            case .success:
+                break
             case .error:
                 XCTFail()
             }

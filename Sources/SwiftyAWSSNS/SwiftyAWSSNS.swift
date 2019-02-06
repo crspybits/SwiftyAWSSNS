@@ -32,7 +32,7 @@ public class SwiftyAWSSNS {
         account = AWSAccount(serviceName: service, region: region, accessKeyID: accessKeyId, secretAccessKey: secretKey)
     }
     
-    func sendRequest(request: URLRequest, queryParameters: String, completion:@escaping (Result<[String: Any]>)->()) {
+    func sendRequest(request: URLRequest, queryParameters: [String: String], completion:@escaping (Result<[String: Any]>)->()) {
     
         var request = request
         
@@ -42,31 +42,45 @@ public class SwiftyAWSSNS {
         request.setValue(baseURL, forHTTPHeaderField: "Host")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         
-        request.sign(for: account, signPayload: true)
+        request.sign(for: account, urlQueryParams: queryParameters, signPayload: true)
         
         let headers = request.allHTTPHeaderFields!
         // print("headers: \(headers)")
+        
+        let queryString = queryParameters.map { (key, value) in
+            "\(key)=\(value)"
+        }.joined(separator: "&")
+        
+//        var path = "/"
+//        if let queryParametersString = request.url?.query {
+//            path = "/?" + queryParametersString
+//        }
         
         let options:[ClientRequest.Options] = [
             .method(request.httpMethod!),
             .headers(headers),
             .schema("https"),
             .hostname(baseURL),
-            .path("/?" + queryParameters)
+            .path("/?" + queryString)
         ]
 
         let req = HTTP.request(options) { response in
             // print("response?.httpStatusCode: \(String(describing: response?.httpStatusCode))")
             var jsonResult:Any!
+            var deserializationError: Swift.Error!
+            
+            do {
+                var bodyData = Data()
+                try response?.readAllData(into: &bodyData)
+                jsonResult = try JSONSerialization.jsonObject(with: bodyData, options: [])
+            }
+            catch (let error) {
+                deserializationError = error
+            }
             
             if response?.httpStatusCode == .OK {
-                do {
-                    var bodyData = Data()
-                    try response?.readAllData(into: &bodyData)
-                    jsonResult = try JSONSerialization.jsonObject(with: bodyData, options: [])
-                }
-                catch (let error) {
-                    completion(.error(AWSError.jsonDeserializationError(error)))
+                guard let jsonResult = jsonResult else {
+                    completion(.error(AWSError.jsonDeserializationError(deserializationError)))
                     return
                 }
                 
@@ -79,6 +93,8 @@ public class SwiftyAWSSNS {
                 completion(.success(jsonDict))
             }
             else {
+                let jsonDict = jsonResult as? [String: Any]
+                print("ERROR: jsonDict: \(String(describing: jsonDict))")
                 completion(.error(AWSError.httpStatusError(response?.httpStatusCode.rawValue)))
             }
         }
@@ -96,9 +112,12 @@ public class SwiftyAWSSNS {
         
         let action = "CreatePlatformEndpoint"
         
-        let queryParameters = "Action=\(action)&PlatformApplicationArn=\(platformApplicationArn!)&Token=\(apnsToken)&Version=\(version)"
+        let queryParameters = ["Action": "\(action)",
+            "PlatformApplicationArn": "\(platformApplicationArn!)",
+            "Token": "\(apnsToken)",
+            "Version": "\(version)"]
 
-        let urlPath = "https://" + baseURL + "/?" + queryParameters
+        let urlPath = "https://" + baseURL
         let url = URL(string: urlPath)!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -124,9 +143,12 @@ public class SwiftyAWSSNS {
     // https://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html
     public func createTopic(topicName: String, completion:@escaping (Result<String>)->()) {
         let action = "CreateTopic"
-        let queryParameters = "Action=\(action)&Name=\(topicName)&Version=\(version)"
+        
+        let queryParameters = ["Action": "\(action)",
+            "Name": "\(topicName)",
+            "Version": "\(version)"]
 
-        let urlPath = "https://" + baseURL + "/?" + queryParameters
+        let urlPath = "https://" + baseURL
         let url = URL(string: urlPath)!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -152,9 +174,14 @@ public class SwiftyAWSSNS {
     public func subscribe(endpointArn: String, topicArn: String, completion:@escaping (Result<String>)->()) {
         let action = "Subscribe"
         let protocolName = "Application"
-        let queryParameters = "Action=\(action)&Endpoint=\(endpointArn)&Protocol=\(protocolName)&TopicArn=\(topicArn)&Version=\(version)"
+        
+        let queryParameters = ["Action": "\(action)",
+            "Endpoint": "\(endpointArn)",
+            "Protocol": "\(protocolName)",
+            "TopicArn": "\(topicArn)",
+            "Version": "\(version)"]
 
-        let urlPath = "https://" + baseURL + "/?" + queryParameters
+        let urlPath = "https://" + baseURL
         let url = URL(string: urlPath)!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -175,6 +202,50 @@ public class SwiftyAWSSNS {
         }
     }
     
+    public enum PublishTarget {
+        case topicArn(String)
+        case endpointArn(String)
+    }
+    
+    // https://docs.aws.amazon.com/sns/latest/api/API_Publish.html
+    // On success, returns a messaeId.
+    public func publish(message: String, target: PublishTarget, completion:@escaping (Result<String>)->()) {
+        let action = "Publish"
+        
+        var queryParameters = ["Action": "\(action)",
+            "Version": "\(version)",
+            "Message": "\(message)"]
+        
+        switch target {
+        case .endpointArn(let endpointArn):
+            queryParameters["TargetArn"] = "\(endpointArn)"
+        case .topicArn(let topicArn):
+            queryParameters["TopicArn"] = "\(topicArn)"
+        }
+
+        let urlPath = "https://" + baseURL
+        let url = URL(string: urlPath)!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        sendRequest(request: request, queryParameters: queryParameters) { result in
+            switch result {
+            case .success(let dict):
+                guard let publishResponse = dict["PublishResponse"] as? [String: Any],
+                    let publishResult = publishResponse["PublishResult"] as? [String: Any],
+                    let messageId = publishResult["MessageId"] as? String  else {
+                    completion(.error(AWSError.jsonParsingError))
+                    return
+                }
+                
+                completion(.success(messageId))
+            case .error(let error):
+                completion(.error(error))
+            }
+        }
+    }
+    
+    /*
     public func listSubscriptionsByTopic() {
     }
     
@@ -186,7 +257,5 @@ public class SwiftyAWSSNS {
     
     public func deleteEndpoint() {
     }
-    
-    public func publish() {
-    }
+    */
 }

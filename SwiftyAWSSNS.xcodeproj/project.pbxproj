@@ -278,7 +278,7 @@
          isa = "PBXFileReference";
          explicitFileType = "sourcecode.swift";
          name = "Package.swift";
-         path = "/Users/chris/Desktop/SwiftyAWSSNS/.build/checkouts/TypeDecoder.git-4636092480228338392/Package.swift";
+         path = "/Users/chris/Desktop/Apps/repos/SwiftyAWSSNS/.build/checkouts/TypeDecoder.git--5363939999401297418/Package.swift";
          sourceTree = "<group>";
       };
       "OBJ_101" = {
@@ -302,7 +302,7 @@
             "OBJ_112"
          );
          name = "KituraContracts";
-         path = ".build/checkouts/KituraContracts.git--4061794974354487098/Sources/KituraContracts";
+         path = ".build/checkouts/KituraContracts.git--2002130165006043695/Sources/KituraContracts";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_103" = {
@@ -376,7 +376,7 @@
          isa = "PBXFileReference";
          explicitFileType = "sourcecode.swift";
          name = "Package.swift";
-         path = "/Users/chris/Desktop/SwiftyAWSSNS/.build/checkouts/KituraContracts.git--4061794974354487098/Package.swift";
+         path = "/Users/chris/Desktop/Apps/repos/SwiftyAWSSNS/.build/checkouts/KituraContracts.git--2002130165006043695/Package.swift";
          sourceTree = "<group>";
       };
       "OBJ_114" = {
@@ -395,7 +395,7 @@
             "OBJ_116"
          );
          name = "KituraTemplateEngine";
-         path = ".build/checkouts/Kitura-TemplateEngine.git-3792205946953203776/Sources/KituraTemplateEngine";
+         path = ".build/checkouts/Kitura-TemplateEngine.git-1463687392473235496/Sources/KituraTemplateEngine";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_116" = {
@@ -407,7 +407,7 @@
          isa = "PBXFileReference";
          explicitFileType = "sourcecode.swift";
          name = "Package.swift";
-         path = "/Users/chris/Desktop/SwiftyAWSSNS/.build/checkouts/Kitura-TemplateEngine.git-3792205946953203776/Package.swift";
+         path = "/Users/chris/Desktop/Apps/repos/SwiftyAWSSNS/.build/checkouts/Kitura-TemplateEngine.git-1463687392473235496/Package.swift";
          sourceTree = "<group>";
       };
       "OBJ_118" = {
@@ -446,7 +446,7 @@
             "OBJ_159"
          );
          name = "KituraNet";
-         path = ".build/checkouts/Kitura-net.git--8452762978199986015/Sources/KituraNet";
+         path = ".build/checkouts/Kitura-net.git-7882669631840972957/Sources/KituraNet";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_12" = {
@@ -725,7 +725,7 @@
          children = (
          );
          name = "CCurl";
-         path = ".build/checkouts/Kitura-net.git--8452762978199986015/Sources/CCurl";
+         path = ".build/checkouts/Kitura-net.git-7882669631840972957/Sources/CCurl";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_161" = {
@@ -736,7 +736,7 @@
             "OBJ_164"
          );
          name = "CHTTPParser";
-         path = ".build/checkouts/Kitura-net.git--8452762978199986015/Sources/CHTTPParser";
+         path = ".build/checkouts/Kitura-net.git-7882669631840972957/Sources/CHTTPParser";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_162" = {
@@ -779,7 +779,7 @@
          isa = "PBXFileReference";
          explicitFileType = "sourcecode.swift";
          name = "Package.swift";
-         path = "/Users/chris/Desktop/SwiftyAWSSNS/.build/checkouts/Kitura-net.git--8452762978199986015/Package.swift";
+         path = "/Users/chris/Desktop/Apps/repos/SwiftyAWSSNS/.build/checkouts/Kitura-net.git-7882669631840972957/Package.swift";
          sourceTree = "<group>";
       };
       "OBJ_169" = {
@@ -809,7 +809,7 @@
             "OBJ_172"
          );
          name = "SSLService";
-         path = ".build/checkouts/BlueSSLService.git-4484485970394719415/Sources/SSLService";
+         path = ".build/checkouts/BlueSSLService.git--3162678685044476715/Sources/SSLService";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_171" = {
@@ -826,7 +826,7 @@
          isa = "PBXFileReference";
          explicitFileType = "sourcecode.swift";
          name = "Package.swift";
-         path = "/Users/chris/Desktop/SwiftyAWSSNS/.build/checkouts/BlueSSLService.git-4484485970394719415/Package.swift";
+         path = "/Users/chris/Desktop/Apps/repos/SwiftyAWSSNS/.build/checkouts/BlueSSLService.git--3162678685044476715/Package.swift";
          sourceTree = "<group>";
       };
       "OBJ_174" = {
@@ -847,7 +847,7 @@
             "OBJ_178"
          );
          name = "Socket";
-         path = ".build/checkouts/BlueSocket.git--2468618450353141865/Sources/Socket";
+         path = ".build/checkouts/BlueSocket.git-3763132928833874542/Sources/Socket";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_176" = {
@@ -869,7 +869,7 @@
          isa = "PBXFileReference";
          explicitFileType = "sourcecode.swift";
          name = "Package.swift";
-         path = "/Users/chris/Desktop/SwiftyAWSSNS/.build/checkouts/BlueSocket.git--2468618450353141865/Package.swift";
+         path = "/Users/chris/Desktop/Apps/repos/SwiftyAWSSNS/.build/checkouts/BlueSocket.git-3763132928833874542/Package.swift";
          sourceTree = "<group>";
       };
       "OBJ_18" = {
@@ -881,7 +881,7 @@
             "OBJ_22"
          );
          name = "SwiftAWSSignatureV4";
-         path = ".build/checkouts/SwiftAWSSignatureV4.git-2465998135417719340/Sources/SwiftAWSSignatureV4";
+         path = ".build/checkouts/SwiftAWSSignatureV4.git-6114743384035591999/Sources/SwiftAWSSignatureV4";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_180" = {
@@ -900,7 +900,7 @@
             "OBJ_182"
          );
          name = "LoggerAPI";
-         path = ".build/checkouts/LoggerAPI.git-192949540907895009/Sources/LoggerAPI";
+         path = ".build/checkouts/LoggerAPI.git-26045145030628239/Sources/LoggerAPI";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_182" = {
@@ -912,25 +912,25 @@
          isa = "PBXFileReference";
          explicitFileType = "sourcecode.swift";
          name = "Package.swift";
-         path = "/Users/chris/Desktop/SwiftyAWSSNS/.build/checkouts/LoggerAPI.git-192949540907895009/Package.swift";
+         path = "/Users/chris/Desktop/Apps/repos/SwiftyAWSSNS/.build/checkouts/LoggerAPI.git-26045145030628239/Package.swift";
          sourceTree = "<group>";
       };
       "OBJ_184" = {
          isa = "PBXGroup";
          children = (
-            "SwiftAWSSignatureV4::SwiftAWSSignatureV4::Product",
-            "Kitura-TemplateEngine::KituraTemplateEngine::Product",
+            "LoggerAPI::LoggerAPI::Product",
             "SSLService::SSLService::Product",
-            "Kitura-net::KituraNet::Product",
             "Socket::Socket::Product",
-            "Kitura-net::CHTTPParser::Product",
-            "Cryptor::Cryptor::Product",
             "KituraContracts::KituraContracts::Product",
+            "Kitura-net::KituraNet::Product",
             "TypeDecoder::TypeDecoder::Product",
+            "Kitura-TemplateEngine::KituraTemplateEngine::Product",
+            "Cryptor::Cryptor::Product",
             "Kitura::Kitura::Product",
-            "SwiftyAWSSNS::SwiftyAWSSNSTests::Product",
+            "SwiftAWSSignatureV4::SwiftAWSSignatureV4::Product",
+            "Kitura-net::CHTTPParser::Product",
             "SwiftyAWSSNS::SwiftyAWSSNS::Product",
-            "LoggerAPI::LoggerAPI::Product"
+            "SwiftyAWSSNS::SwiftyAWSSNSTests::Product"
          );
          name = "Products";
          path = "";
@@ -976,7 +976,7 @@
             );
             HEADER_SEARCH_PATHS = (
                "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/Kitura-net.git--8452762978199986015/Sources/CHTTPParser/include"
+               "$(SRCROOT)/.build/checkouts/Kitura-net.git-7882669631840972957/Sources/CHTTPParser/include"
             );
             INFOPLIST_FILE = "SwiftyAWSSNS.xcodeproj/CHTTPParser_Info.plist";
             LD_RUNPATH_SEARCH_PATHS = (
@@ -1015,7 +1015,7 @@
             );
             HEADER_SEARCH_PATHS = (
                "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/Kitura-net.git--8452762978199986015/Sources/CHTTPParser/include"
+               "$(SRCROOT)/.build/checkouts/Kitura-net.git-7882669631840972957/Sources/CHTTPParser/include"
             );
             INFOPLIST_FILE = "SwiftyAWSSNS.xcodeproj/CHTTPParser_Info.plist";
             LD_RUNPATH_SEARCH_PATHS = (
@@ -1286,7 +1286,7 @@
          isa = "PBXFileReference";
          explicitFileType = "sourcecode.swift";
          name = "Package.swift";
-         path = "/Users/chris/Desktop/SwiftyAWSSNS/.build/checkouts/SwiftAWSSignatureV4.git-2465998135417719340/Package.swift";
+         path = "/Users/chris/Desktop/Apps/repos/SwiftyAWSSNS/.build/checkouts/SwiftAWSSignatureV4.git-6114743384035591999/Package.swift";
          sourceTree = "<group>";
       };
       "OBJ_230" = {
@@ -1336,8 +1336,8 @@
             );
             HEADER_SEARCH_PATHS = (
                "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/Kitura-net.git--8452762978199986015/Sources/CCurl",
-               "$(SRCROOT)/.build/checkouts/Kitura-net.git--8452762978199986015/Sources/CHTTPParser/include"
+               "$(SRCROOT)/.build/checkouts/Kitura-net.git-7882669631840972957/Sources/CCurl",
+               "$(SRCROOT)/.build/checkouts/Kitura-net.git-7882669631840972957/Sources/CHTTPParser/include"
             );
             INFOPLIST_FILE = "SwiftyAWSSNS.xcodeproj/Kitura_Info.plist";
             LD_RUNPATH_SEARCH_PATHS = (
@@ -1375,8 +1375,8 @@
             );
             HEADER_SEARCH_PATHS = (
                "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/Kitura-net.git--8452762978199986015/Sources/CCurl",
-               "$(SRCROOT)/.build/checkouts/Kitura-net.git--8452762978199986015/Sources/CHTTPParser/include"
+               "$(SRCROOT)/.build/checkouts/Kitura-net.git-7882669631840972957/Sources/CCurl",
+               "$(SRCROOT)/.build/checkouts/Kitura-net.git-7882669631840972957/Sources/CHTTPParser/include"
             );
             INFOPLIST_FILE = "SwiftyAWSSNS.xcodeproj/Kitura_Info.plist";
             LD_RUNPATH_SEARCH_PATHS = (
@@ -1535,7 +1535,7 @@
             "OBJ_36"
          );
          name = "Cryptor";
-         path = ".build/checkouts/BlueCryptor.git-5986496136125484216/Sources/Cryptor";
+         path = ".build/checkouts/BlueCryptor.git-3557506055596157064/Sources/Cryptor";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_250" = {
@@ -2190,8 +2190,8 @@
             );
             HEADER_SEARCH_PATHS = (
                "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/Kitura-net.git--8452762978199986015/Sources/CCurl",
-               "$(SRCROOT)/.build/checkouts/Kitura-net.git--8452762978199986015/Sources/CHTTPParser/include"
+               "$(SRCROOT)/.build/checkouts/Kitura-net.git-7882669631840972957/Sources/CCurl",
+               "$(SRCROOT)/.build/checkouts/Kitura-net.git-7882669631840972957/Sources/CHTTPParser/include"
             );
             INFOPLIST_FILE = "SwiftyAWSSNS.xcodeproj/KituraNet_Info.plist";
             LD_RUNPATH_SEARCH_PATHS = (
@@ -2234,8 +2234,8 @@
             );
             HEADER_SEARCH_PATHS = (
                "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/Kitura-net.git--8452762978199986015/Sources/CCurl",
-               "$(SRCROOT)/.build/checkouts/Kitura-net.git--8452762978199986015/Sources/CHTTPParser/include"
+               "$(SRCROOT)/.build/checkouts/Kitura-net.git-7882669631840972957/Sources/CCurl",
+               "$(SRCROOT)/.build/checkouts/Kitura-net.git-7882669631840972957/Sources/CHTTPParser/include"
             );
             INFOPLIST_FILE = "SwiftyAWSSNS.xcodeproj/KituraNet_Info.plist";
             LD_RUNPATH_SEARCH_PATHS = (
@@ -2385,7 +2385,7 @@
          isa = "PBXFileReference";
          explicitFileType = "sourcecode.swift";
          name = "Package.swift";
-         path = "/Users/chris/Desktop/SwiftyAWSSNS/.build/checkouts/BlueCryptor.git-5986496136125484216/Package.swift";
+         path = "/Users/chris/Desktop/Apps/repos/SwiftyAWSSNS/.build/checkouts/BlueCryptor.git-3557506055596157064/Package.swift";
          sourceTree = "<group>";
       };
       "OBJ_370" = {
@@ -2524,7 +2524,7 @@
             "OBJ_87"
          );
          name = "Kitura";
-         path = ".build/checkouts/Kitura.git--2963647562833233796/Sources/Kitura";
+         path = ".build/checkouts/Kitura.git-7107775948236027180/Sources/Kitura";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_390" = {
@@ -3459,8 +3459,8 @@
             );
             HEADER_SEARCH_PATHS = (
                "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/Kitura-net.git--8452762978199986015/Sources/CCurl",
-               "$(SRCROOT)/.build/checkouts/Kitura-net.git--8452762978199986015/Sources/CHTTPParser/include"
+               "$(SRCROOT)/.build/checkouts/Kitura-net.git-7882669631840972957/Sources/CCurl",
+               "$(SRCROOT)/.build/checkouts/Kitura-net.git-7882669631840972957/Sources/CHTTPParser/include"
             );
             INFOPLIST_FILE = "SwiftyAWSSNS.xcodeproj/SwiftyAWSSNS_Info.plist";
             LD_RUNPATH_SEARCH_PATHS = (
@@ -3498,8 +3498,8 @@
             );
             HEADER_SEARCH_PATHS = (
                "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/Kitura-net.git--8452762978199986015/Sources/CCurl",
-               "$(SRCROOT)/.build/checkouts/Kitura-net.git--8452762978199986015/Sources/CHTTPParser/include"
+               "$(SRCROOT)/.build/checkouts/Kitura-net.git-7882669631840972957/Sources/CCurl",
+               "$(SRCROOT)/.build/checkouts/Kitura-net.git-7882669631840972957/Sources/CHTTPParser/include"
             );
             INFOPLIST_FILE = "SwiftyAWSSNS.xcodeproj/SwiftyAWSSNS_Info.plist";
             LD_RUNPATH_SEARCH_PATHS = (
@@ -3775,8 +3775,8 @@
             );
             HEADER_SEARCH_PATHS = (
                "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/Kitura-net.git--8452762978199986015/Sources/CCurl",
-               "$(SRCROOT)/.build/checkouts/Kitura-net.git--8452762978199986015/Sources/CHTTPParser/include"
+               "$(SRCROOT)/.build/checkouts/Kitura-net.git-7882669631840972957/Sources/CCurl",
+               "$(SRCROOT)/.build/checkouts/Kitura-net.git-7882669631840972957/Sources/CHTTPParser/include"
             );
             INFOPLIST_FILE = "SwiftyAWSSNS.xcodeproj/SwiftyAWSSNSTests_Info.plist";
             LD_RUNPATH_SEARCH_PATHS = (
@@ -3812,8 +3812,8 @@
             );
             HEADER_SEARCH_PATHS = (
                "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/Kitura-net.git--8452762978199986015/Sources/CCurl",
-               "$(SRCROOT)/.build/checkouts/Kitura-net.git--8452762978199986015/Sources/CHTTPParser/include"
+               "$(SRCROOT)/.build/checkouts/Kitura-net.git-7882669631840972957/Sources/CCurl",
+               "$(SRCROOT)/.build/checkouts/Kitura-net.git-7882669631840972957/Sources/CHTTPParser/include"
             );
             INFOPLIST_FILE = "SwiftyAWSSNS.xcodeproj/SwiftyAWSSNSTests_Info.plist";
             LD_RUNPATH_SEARCH_PATHS = (
@@ -4400,7 +4400,7 @@
          isa = "PBXFileReference";
          explicitFileType = "sourcecode.swift";
          name = "Package.swift";
-         path = "/Users/chris/Desktop/SwiftyAWSSNS/.build/checkouts/Kitura.git--2963647562833233796/Package.swift";
+         path = "/Users/chris/Desktop/Apps/repos/SwiftyAWSSNS/.build/checkouts/Kitura.git-7107775948236027180/Package.swift";
          sourceTree = "<group>";
       };
       "OBJ_96" = {
@@ -4420,7 +4420,7 @@
             "OBJ_99"
          );
          name = "TypeDecoder";
-         path = ".build/checkouts/TypeDecoder.git-4636092480228338392/Sources/TypeDecoder";
+         path = ".build/checkouts/TypeDecoder.git--5363939999401297418/Sources/TypeDecoder";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_98" = {
