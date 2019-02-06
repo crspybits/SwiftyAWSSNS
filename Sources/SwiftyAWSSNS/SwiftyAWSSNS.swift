@@ -205,14 +205,18 @@ public class SwiftyAWSSNS {
     }
     
     // https://docs.aws.amazon.com/sns/latest/api/API_Publish.html
-    // On success, returns a messaeId.
-    public func publish(message: String, target: PublishTarget, completion:@escaping (Result<String>)->()) {
+    // On success, returns a messageId.
+    // See the tests for examples of the message formats.
+    public func publish(message: String, target: PublishTarget, jsonMessageStructure: Bool = true, completion:@escaping (Result<String>)->()) {
         let action = "Publish"
         
         var queryParameters = ["Action": "\(action)",
             "Version": "\(version)",
-            "Message": "\(message)",
-            "MessageStructure":"json"]
+            "Message": "\(message)"]
+        
+        if jsonMessageStructure {
+            queryParameters["MessageStructure"] = "json"
+        }
         
         switch target {
         case .endpointArn(let endpointArn):

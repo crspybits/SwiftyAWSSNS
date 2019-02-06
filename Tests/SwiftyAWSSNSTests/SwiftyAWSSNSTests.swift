@@ -140,7 +140,7 @@ final class SwiftyAWSSNSTests: XCTestCase {
             return
         }
         
-        // Looks like this must be "APNS" for production; see https://forums.aws.amazon.com/thread.jspa?threadID=145907
+        // Looks like the top level key must be "APNS" for production; see https://forums.aws.amazon.com/thread.jspa?threadID=145907
         let messageDict = ["APNS_SANDBOX": messageContentsString,
             "APNS": messageContentsString
         ]
@@ -167,5 +167,8 @@ final class SwiftyAWSSNSTests: XCTestCase {
 
     static var allTests = [
         ("testCreatePlatformEndpoint", testCreatePlatformEndpoint),
+        ("testCreateTopic", testCreateTopic),
+        ("testSubscribe", testSubscribe),
+        ("testPublishToEndpoint", testPublishToEndpoint)
     ]
 }
