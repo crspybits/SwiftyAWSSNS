@@ -77,10 +77,12 @@ final class SwiftyAWSSNSTests: XCTestCase {
     }
     
     func testCreateTopic() {
-        guard let _ = createTopic() else {
+        guard let topicArn = createTopic() else {
             XCTFail()
             return
         }
+        
+        print("\(topicArn)")
     }
     
     func testSubscribe() {
@@ -133,7 +135,9 @@ final class SwiftyAWSSNSTests: XCTestCase {
         }
         
         let messageContentsDict = ["aps":
-            ["alert": "Hello!",
+            // Make sure there's a space here in the message-- want to include that test case.
+            ["alert": "Hello world!",
+            
             "sound": "default"]
         ]
         
@@ -144,7 +148,8 @@ final class SwiftyAWSSNSTests: XCTestCase {
         
         // Looks like the top level key must be "APNS" for production; see https://forums.aws.amazon.com/thread.jspa?threadID=145907
         let messageDict = ["APNS_SANDBOX": messageContentsString,
-            "APNS": messageContentsString
+            "APNS": messageContentsString,
+            "default": messageContentsString
         ]
 
         guard let messageString = strForJSON(json: messageDict) else {

@@ -46,18 +46,17 @@ public class SwiftyAWSSNS {
         
         let headers = request.allHTTPHeaderFields!
         // print("headers: \(headers)")
-        
-        let queryString = queryParameters.map { (key, value) in
-            "\(key)=\(value)"
-        }.joined(separator: "&")
-        
-        let options:[ClientRequest.Options] = [
+                
+        var options:[ClientRequest.Options] = [
             .method(request.httpMethod!),
             .headers(headers),
             .schema("https"),
             .hostname(baseURL),
-            .path("/?" + queryString)
         ]
+        
+        if let query = request.url?.query {
+            options += [ClientRequest.Options.path("/?" + query)]
+        }
 
         let req = HTTP.request(options) { response in
             // print("response?.httpStatusCode: \(String(describing: response?.httpStatusCode))")
