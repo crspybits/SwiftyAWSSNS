@@ -54,6 +54,7 @@ public class SwiftyAWSSNS {
             .hostname(baseURL),
         ]
         
+        // Query parameters have been url encoded and added to the .url by the signing. We want the url encoded query parameters for the HTTP request.
         if let query = request.url?.query {
             options += [ClientRequest.Options.path("/?" + query)]
         }
