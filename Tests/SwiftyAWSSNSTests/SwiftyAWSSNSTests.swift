@@ -14,7 +14,7 @@ final class SwiftyAWSSNSTests: XCTestCase {
         super.setUp()
 
         if let resourceData = try? Data(contentsOf: URL(fileURLWithPath: "/tmp/Info.plist")),
-            let resource = try? PropertyListSerialization.propertyList(from: resourceData, format: nil) as? [String:Any], let info = resource {
+            let info = try? PropertyListSerialization.propertyList(from: resourceData, format: nil) as? [String:Any] {
             accessKeyId = info["accessKeyId"] as? String
             secretKey = info["secretKey"] as? String
             region = info["region"] as? String
