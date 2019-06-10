@@ -1,0 +1,4 @@
+SwiftyAWSSNS
+
+Version 0.3.0 (6/9/19)
+	Update to Swift 5
