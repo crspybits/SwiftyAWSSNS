@@ -2,6 +2,11 @@ import KituraNet
 import SwiftAWSSignatureV4
 import Foundation
 
+// See https://stackoverflow.com/questions/58592508
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
+
 public class SwiftyAWSSNS {
     private let service = "sns"
     private let version = "2010-03-31"

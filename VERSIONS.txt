@@ -1,4 +1,7 @@
 SwiftyAWSSNS
 
+Version 0.3.1 (5/30/20)
+	Added support for FoundationNetworking because of build failures.
+	
 Version 0.3.0 (6/9/19)
 	Update to Swift 5
